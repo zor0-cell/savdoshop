@@ -3,3 +3,5 @@ node_modules/
 *.log
 .DS_Store
 week1.zip
+report/backup-video.mp4
+server/_video/
