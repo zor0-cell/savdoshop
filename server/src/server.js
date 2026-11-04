@@ -46,6 +46,13 @@ app.get('/api/products', wrap(async (req, res) => {
   const page = Math.max(1, Number(req.query.page) || 1);
   const pageSize = 12;
 
+  if (category !== null && !Number.isInteger(category)) {
+    return res.status(400).json({ error: 'category must be a category id, e.g. 1' });
+  }
+  if (!Number.isFinite(page)) {
+    return res.status(400).json({ error: 'page must be a number' });
+  }
+
   // $1, $2 ... are parameters: the driver escapes them (protects against SQL injection)
   const { rows } = await pool.query(
     `SELECT p.product_id, p.name, p.price, p.stock, p.image_url, c.name AS category
@@ -63,6 +70,7 @@ app.get('/api/products', wrap(async (req, res) => {
 // ---------- Product detail: PostgreSQL row + MongoDB reviews ----------
 app.get('/api/products/:id', wrap(async (req, res) => {
   const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id < 1) return res.status(400).json({ error: 'Product id must be a positive integer' });
   const { rows } = await pool.query(
     `SELECT p.*, c.name AS category FROM products p
        JOIN categories c ON c.category_id = p.category_id
