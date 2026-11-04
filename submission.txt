@@ -4,10 +4,10 @@ SavdoShop - Big Data course, submission
 Student:        ____________________  Group: __________  Date: __________
 
 1. Public URL:  ____________________   (Render; первый заход ~50 с - free tier засыпает)
-2. GitHub:      ____________________   (репозиторий публичный, .env не в Git)
+2. GitHub:      https://github.com/zor0-cell/savdoshop   (репозиторий публичный, .env не в Git)
 3. Report PDF:  report/report.pdf      (12 страниц, 8 разделов по шаблону пособия)
-4. Slides:      ____________________   (8-10 слайдов)
-5. Backup video:____________________   (3 минуты, на случай без интернета)
+4. Slides:      report/savdoshop-slides.pptx   (9 слайдов)
+5. Backup video:report/backup-video.mp4   (3 минуты, на случай без интернета)
 
 Week 1 folder:  week1/
   01_schema.sql  02_seed.sql  03_queries.sql (20 SQL)  04_big_data.sql

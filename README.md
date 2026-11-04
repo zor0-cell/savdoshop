@@ -3,6 +3,8 @@
 Полный референсный сайт из пособия «Build Your Own Database + Website in 3 Weeks»:
 PostgreSQL (деньги и остатки) + MongoDB (отзывы и клики) + Node.js/Express между ними.
 
+Репозиторий: <https://github.com/zor0-cell/savdoshop>
+
 ```
 savdoshop/
 ├─ sql/     01_schema.sql  02_seed.sql  03_practice_queries.sql  04_big_data.sql
