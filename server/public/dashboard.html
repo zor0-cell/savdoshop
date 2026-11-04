@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - SavdoShop</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <header>
+    <a href="/" class="logo"><img src="/logo.svg" alt="" class="logo-mark">SavdoShop</a>
+    <nav><a href="/">Shop</a> <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a> <a href="/dashboard.html">Dashboard</a></nav>
+  </header>
+  <main>
+    <h1>Dashboard</h1>
+
+    <section class="card">
+      <h2>Revenue by city <span class="muted">GET /api/stats/sales-by-city (PostgreSQL)</span></h2>
+      <div id="sales-by-city"></div>
+    </section>
+
+    <section class="card">
+      <h2>Most viewed products <span class="muted">GET /api/stats/top-viewed (MongoDB)</span></h2>
+      <div id="top-viewed"></div>
+    </section>
+
+    <section class="card">
+      <h2>Click funnel <span class="muted">GET /api/stats/funnel (MongoDB)</span></h2>
+      <div id="funnel"></div>
+    </section>
+
+    <section class="card">
+      <h2>Database status <span class="muted">GET /api/health</span></h2>
+      <div id="health"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

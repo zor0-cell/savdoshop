@@ -1,0 +1,24 @@
+SavdoShop - Big Data course, submission
+=======================================
+
+Student:        ____________________  Group: __________  Date: __________
+
+1. Public URL:  ____________________   (Render; первый заход ~50 с - free tier засыпает)
+2. GitHub:      ____________________   (репозиторий публичный, .env не в Git)
+3. Report PDF:  report/report.pdf      (12 страниц, 8 разделов по шаблону пособия)
+4. Slides:      ____________________   (8-10 слайдов)
+5. Backup video:____________________   (3 минуты, на случай без интернета)
+
+Week 1 folder:  week1/
+  01_schema.sql  02_seed.sql  03_queries.sql (20 SQL)  04_big_data.sql
+  mongo_setup.js mongo_queries.js (M1-M14)  er_diagram.png  week1_results.pdf (20 страниц реальных выводов)
+
+Week 2:         server/ - 10 API routes, 4 pages, transaction POST /api/orders
+Week 3:         DEPLOY.md - шаг за шагом Supabase + Atlas + Render + cloudflared
+Demo script:    report/demo-script.md (7 минут по минутам + ответы на защите)
+
+Key numbers (real, measured on this PC):
+  PostgreSQL: 500 000 rows in sales_log; EXPLAIN ANALYZE 1110 ms (Seq Scan) -> 82 ms (Bitmap Index Scan) = ~13x
+  MongoDB:    50 000 events; before compound index examined 7144 / returned 887 (47 ms)
+              after index city_1_type_1 examined 887 / returned 887 (30 ms)
+  Tests:      T1-T10 all passed in a real browser (Playwright), console clean

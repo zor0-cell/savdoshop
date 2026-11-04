@@ -1,0 +1,19 @@
+home: 12 product cards
+search q=silk: 1 card
+filter Shoes: 3 cards
+product page: "Atlas silk dress" 650 000 so'm, 3 review(s) from MongoDB
+post review: message="Thanks! Your review was saved in MongoDB.", reviews 3 -> 4
+add to cart: badge=1
+added rose cream x2: badge=3
+cart: total text="Total: 890 000 so'm"
+place order: "Thank you! Order #7, total 890 000 so'm"
+cart after order: lines=0, badge=0
+out of stock: "Error: Not enough stock for product 10"
+gold ring stock now: 5
+dashboard: 10 bars, health="PostgreSQL: connected, server time 04.11.2026, 00:00:07 MongoDB: connected, 9 reviews in t"
+mobile 390px: first card width=344
+
+ERRORS:
+console: Failed to load resource: the server responded with a status of 404 (Not Found)
+http 409 http://localhost:3000/api/orders
+console: Failed to load resource: the server responded with a status of 409 (Conflict)

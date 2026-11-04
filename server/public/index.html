@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SavdoShop</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header>
+    <a href="/" class="logo"><img src="/logo.svg" alt="" class="logo-mark">SavdoShop</a>
+    <nav><a href="/">Shop</a> <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a> <a href="/dashboard.html">Dashboard</a></nav>
+  </header>
+  <main>
+    <form id="filters">
+      <input id="q" placeholder="Search products...">
+      <select id="category"><option value="">All categories</option></select>
+      <button>Search</button>
+    </form>
+    <div id="products" class="grid"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

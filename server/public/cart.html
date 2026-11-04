@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart - SavdoShop</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="cart">
+  <header>
+    <a href="/" class="logo"><img src="/logo.svg" alt="" class="logo-mark">SavdoShop</a>
+    <nav><a href="/">Shop</a> <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a> <a href="/dashboard.html">Dashboard</a></nav>
+  </header>
+  <main>
+    <h1>Your cart</h1>
+    <div id="cart"></div>
+    <p class="price" id="cart-total"></p>
+
+    <h2>Checkout</h2>
+    <form id="checkout">
+      <input id="fullName" placeholder="Full name" value="Aziza Karimova" required>
+      <input id="email" type="email" placeholder="E-mail" value="aziza@example.uz" required>
+      <input id="phone" placeholder="Phone (+998...)" value="+998901112233">
+      <input id="city" placeholder="City" value="Tashkent">
+      <select id="paymentMethod">
+        <option value="cash">cash</option>
+        <option value="card">card</option>
+        <option value="payme">payme</option>
+        <option value="click">click</option>
+      </select>
+      <button>Place order</button>
+    </form>
+    <p id="message" class="message"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
