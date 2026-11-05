@@ -5,3 +5,4 @@ node_modules/
 week1.zip
 report/backup-video.mp4
 server/_video/
+server/cloud/cloud.env

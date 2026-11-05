@@ -35,23 +35,35 @@ Netlify в пособии не используется и не подойдёт
    (в Compass: вкладка *Aggregations → _MONGOSH* или расширение MongoDB для VS Code). Ожидаемый вывод: `reviews: 7  events: 50000`.
    Затем `sql`-часть не нужна, а `mongo/02_queries.mongodb.js` прогони по блокам — это твои 12+ запросов в облачной базе.
 
-## 3. GitHub — 5 минут (неделя 2 тоже требует ссылку)
+## 3. GitHub — уже сделано
+
+Репозиторий: **<https://github.com/zor0-cell/savdoshop>** (публичный, ветка `main`, `server/.env` в Git не попал).
+Все изменения, которые делаем дальше, отправляются двумя командами из папки `savdoshop`:
 
 ```bash
-cd savdoshop
-git init
-git add .
-git status            # ОБЯЗАТЕЛЬНО: в списке не должно быть server/.env и node_modules
-git commit -m "SavdoShop: PostgreSQL + MongoDB + Express, week 1-2"
+git add -A && git commit -m "что изменилось" && git push
 ```
-Дальше на <https://github.com/new> создай публичный репозиторий `savdoshop` (без README/лицензии, чтобы не было конфликтов) и:
-```bash
-git remote add origin https://github.com/USERNAME/savdoshop.git
-git push -u origin main     # спросит логин + Personal Access Token (Settings → Developer settings → Tokens)
-```
+
 Проверка после push: в поиске по репозиторию набери `password` — ничего не должно найтись (пособие: «search the repository for password»).
 
-## 4. Render — 15 минут
+## 4. Залить свои данные в облако — одной командой
+
+Чтобы не копировать SQL и Mongo-скрипты руками, в проекте есть `server/cloud/prepare.mjs`.
+
+1. Двойной клик по **`Залить-в-облако.bat`** (в корне проекта). Первый запуск создаст `server/cloud/cloud.env` —
+   файл для секретов, он в `.gitignore` и на GitHub не попадёт.
+2. Открой `server/cloud/cloud.env` в блокноте и вставь туда ровно две строки:
+   `DATABASE_URL=` — строка Supabase из шага 1.5 (Session pooler),
+   `MONGODB_URI=` — строка Atlas из шага 2.4. Спецсимволы в пароле — URL-encode (`@`→`%40`, `#`→`%23`, `/`→`%2F`, `:`→`%3A`).
+3. Запусти `Залить-в-облако.bat` ещё раз. Он сам:
+   - выполнит `sql/01_schema.sql` + `sql/02_seed.sql` в Supabase и покажет `c: 5, p: 12, u: 10, o: 3, i: 5, y: 2`;
+   - зальёт 7 отзывов и 50 000 событий в Atlas и создаст три индекса;
+   - напечатает, какие четыре переменные вставить в Render (пароли в выводе скрыты).
+4. Хочешь убедиться, что сайт против облачных баз живой, до Render — запусти
+   `node cloud/prepare.mjs --serve` из папки `server` и открой <http://localhost:3200>.
+   Это тот же код, что потом ляжет на Render, только порт 3200.
+
+## 5. Render — 15 минут
 
 1. <https://render.com> → *New* → **Web Service** → подключи репозиторий `savdoshop` (Figure 3.5).
 2. Форма:
@@ -68,7 +80,7 @@ git push -u origin main     # спросит логин + Personal Access Token 
 4. Открой `https://savdoshop-xxxx.onrender.com/api/health` → `{"ok":true,...}`.
    Первый заход после простоя — до 50 секунд (бесплатный тариф засыпает), это нормально и есть в отчёте.
 
-## 5. Быстрая публичная ссылка для демо (пока Render не нужен)
+## 6. Временная ссылка с ноутбука (пока Render не готов)
 
 ```bash
 winget install --id Cloudflare.cloudflared
@@ -77,7 +89,7 @@ cloudflared tunnel --url http://localhost:3000
 Ссылка вида `https://xxxx-try.cloudflarequicktunnel.com` живёт, пока открыт терминал, и меняется каждый раз —
 только для демо, не как «постоянный» хостинг.
 
-## 6. Чек-лист перед сдачей
+## 7. Чек-лист перед сдачей
 
 - [ ] Публичный URL открывается с телефона и показывает 12 товаров
 - [ ] Заказ с сайта появился в Supabase (*Table Editor → orders*) и событие в Atlas (*Browse Collections → events*)

@@ -9,7 +9,7 @@ PostgreSQL (деньги и остатки) + MongoDB (отзывы и клик�
 savdoshop/
 ├─ sql/     01_schema.sql  02_seed.sql  03_practice_queries.sql  04_big_data.sql
 ├─ mongo/   01_setup.mongodb.js  02_queries.mongodb.js
-├─ server/  package.json  .env.example  src/db.js  src/server.js  public/*
+├─ server/  package.json  .env.example  src/db.js  src/server.js  public/*  cloud/prepare.mjs
 ├─ week1/   то же, но именами из чек-листа + er_diagram.png + week1_results.pdf
 ├─ report/  report.pdf (12 стр.) + demo-script.md (7 мин) + savdoshop-slides.pptx (9 слайдов) + backup-video.mp4 (3 мин)
 ├─ screenshots/  5 снимков сайта, сделанных реальными кликами
